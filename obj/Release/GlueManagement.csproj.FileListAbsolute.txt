@@ -1,0 +1,70 @@
+D:\code\GlueManagement\bin\Release\GlueManagement.exe.config
+D:\code\GlueManagement\bin\Release\GlueManagement.exe
+D:\code\GlueManagement\bin\Release\GlueManagement.pdb
+D:\code\GlueManagement\bin\Release\Npgsql.dll
+D:\code\GlueManagement\bin\Release\zxing.dll
+D:\code\GlueManagement\bin\Release\Mono.Security.dll
+D:\code\GlueManagement\obj\Release\GlueManagement.csprojAssemblyReference.cache
+D:\code\GlueManagement\obj\Release\GlueManagement.GlueManagement.resources
+D:\code\GlueManagement\obj\Release\GlueManagement.Login.resources
+D:\code\GlueManagement\obj\Release\GlueManagement.Properties.Resources.resources
+D:\code\GlueManagement\obj\Release\GlueManagement.csproj.GenerateResource.cache
+D:\code\GlueManagement\obj\Release\GlueManagement.csproj.CoreCompileInputs.cache
+D:\code\GlueManagement\obj\Release\GlueManagement.csproj.CopyComplete
+D:\code\GlueManagement\obj\Release\GlueManagement.exe
+D:\code\GlueManagement\obj\Release\GlueManagement.pdb
+D:\code\GlueManagement\bin\Release\GlueManagement.exe.manifest
+D:\code\GlueManagement\bin\Release\GlueManagement.application
+D:\code\GlueManagement\obj\Release\GlueManagement.exe.manifest
+D:\code\GlueManagement\obj\Release\GlueManagement.application
+D:\code\GlueManagement\obj\Release\GlueManagement.Query.resources
+D:\code\GlueManagement\GlueManagement\bin\Release\GlueManagement.exe.config
+D:\code\GlueManagement\GlueManagement\bin\Release\GlueManagement.exe.manifest
+D:\code\GlueManagement\GlueManagement\bin\Release\GlueManagement.application
+D:\code\GlueManagement\GlueManagement\bin\Release\GlueManagement.exe
+D:\code\GlueManagement\GlueManagement\bin\Release\GlueManagement.pdb
+D:\code\GlueManagement\GlueManagement\bin\Release\Mono.Security.dll
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.csprojAssemblyReference.cache
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.GlueManagement.resources
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.Login.resources
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.Properties.Resources.resources
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.Query.resources
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.csproj.GenerateResource.cache
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.csproj.CoreCompileInputs.cache
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.exe.manifest
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.application
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.csproj.CopyComplete
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.exe
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.pdb
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.BigGlueItem.resources
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.Print.resources
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.GlueRecord.resources
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.GlueManagementBackup.resources
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.GlueType.resources
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.GlueUsePlace.resources
+D:\code\GlueManagement\GlueManagement\obj\Release\GlueManagement.SmallGlueItem.resources
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\bin\Release\GlueManagement.exe.config
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\bin\Release\GlueManagement.exe.manifest
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\bin\Release\GlueManagement.application
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\bin\Release\GlueManagement.exe
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\bin\Release\GlueManagement.pdb
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\bin\Release\Mono.Security.dll
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.csprojAssemblyReference.cache
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.BigGlueItem.resources
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.Print.resources
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.GlueRecord.resources
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.GlueManagementBackup.resources
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.GlueManagement.resources
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.GlueType.resources
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.GlueUsePlace.resources
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.Login.resources
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.Properties.Resources.resources
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.Query.resources
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.SmallGlueItem.resources
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.csproj.GenerateResource.cache
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.csproj.CoreCompileInputs.cache
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.exe.manifest
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.application
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.csproj.CopyComplete
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.exe
+C:\Users\yyx19\Desktop\临时回收站\新建文件夹 (4)\20190717\GlueManagement\obj\Release\GlueManagement.pdb

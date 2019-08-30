@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6" />
+    </startup>
+  <connectionStrings>
+    <add name="Database" connectionString="Server=172.27.40.14;Port=5432;User id=pqm;password=dbuser;Database=GlueManagement;" />
+  </connectionStrings>
+</configuration>
