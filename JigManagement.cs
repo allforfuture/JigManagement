@@ -268,17 +268,22 @@ WHERE row_number=1 AND status_cd='1'"
                     MessageBox.Show("此用户没有权限维修", "维修", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                if (MessageBox.Show("再次确认是否已维修？", "维修"
-                        , MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-                {
-                    return;
-                }
-
                 string serial_cd = dgvData.Rows[e.RowIndex].Cells["serial_cd"].Value.ToString();
-                string sql = string.Format(@"INSERT INTO jig_mainte_history (id, serial_cd, created_at, work_type, user_id)
-                                        VALUES (Nextval('jig_mainte_history_id_seq'), '{0}', now(), 'MAINTENANCE', '{1}')"
-                            , serial_cd, Login.User);
-                new DBFactory().ExecuteSQL(sql);
+                bool isOpen = false;
+                foreach (Form openForm in Application.OpenForms)
+                {
+                    if (openForm.Text == "JigMaintenance")
+                    {
+                        isOpen = true;
+                        openForm.Close();
+                        new JigMaintenance(serial_cd).ShowDialog();
+                        break;
+                    }
+                }
+                if (!isOpen)
+                {
+                    new JigMaintenance(serial_cd).ShowDialog();
+                }
                 BtnSearch_Click(sender, e);
             }
         }
@@ -293,6 +298,7 @@ WHERE row_number=1 AND status_cd='1'"
                 if (openForm.Text == "JigAdd")
                 {
                     isOpen = true;
+                    break;
                 }
             }
             if (!isOpen)
@@ -309,6 +315,7 @@ WHERE row_number=1 AND status_cd='1'"
                 if (openForm.Text == "JigExist")
                 {
                     isOpen = true;
+                    break;
                 }
             }
             if (!isOpen)
@@ -325,6 +332,7 @@ WHERE row_number=1 AND status_cd='1'"
                 if (openForm.Text == "JigMaintenance")
                 {
                     isOpen = true;
+                    break;
                 }
             }
             if (!isOpen)
@@ -341,6 +349,7 @@ WHERE row_number=1 AND status_cd='1'"
                 if (openForm.Text == "JigRename")
                 {
                     isOpen = true;
+                    break;
                 }
             }
             if (!isOpen)

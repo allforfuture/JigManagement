@@ -46,6 +46,9 @@
             this.txtJigID_Search = new System.Windows.Forms.TextBox();
             this.chkJigID = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cboReason_Search = new System.Windows.Forms.ComboBox();
+            this.chkReason = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.chkExist = new System.Windows.Forms.CheckBox();
             this.chkLine = new System.Windows.Forms.CheckBox();
             this.chkDataTypeID = new System.Windows.Forms.CheckBox();
@@ -55,9 +58,6 @@
             this.cboDataTypeID_Search = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.cboReason_Search = new System.Windows.Forms.ComboBox();
-            this.chkReason = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -236,6 +236,33 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "查询Jig维修记录";
             // 
+            // cboReason_Search
+            // 
+            this.cboReason_Search.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboReason_Search.FormattingEnabled = true;
+            this.cboReason_Search.Location = new System.Drawing.Point(802, 26);
+            this.cboReason_Search.Name = "cboReason_Search";
+            this.cboReason_Search.Size = new System.Drawing.Size(121, 20);
+            this.cboReason_Search.TabIndex = 51;
+            // 
+            // chkReason
+            // 
+            this.chkReason.AutoSize = true;
+            this.chkReason.Location = new System.Drawing.Point(928, 29);
+            this.chkReason.Name = "chkReason";
+            this.chkReason.Size = new System.Drawing.Size(15, 14);
+            this.chkReason.TabIndex = 50;
+            this.chkReason.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(755, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 49;
+            this.label4.Text = "原因：";
+            // 
             // chkExist
             // 
             this.chkExist.AutoSize = true;
@@ -318,33 +345,6 @@
             this.label9.Size = new System.Drawing.Size(89, 12);
             this.label9.TabIndex = 38;
             this.label9.Text = "Data Type ID：";
-            // 
-            // cboReason_Search
-            // 
-            this.cboReason_Search.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboReason_Search.FormattingEnabled = true;
-            this.cboReason_Search.Location = new System.Drawing.Point(802, 26);
-            this.cboReason_Search.Name = "cboReason_Search";
-            this.cboReason_Search.Size = new System.Drawing.Size(121, 20);
-            this.cboReason_Search.TabIndex = 51;
-            // 
-            // chkReason
-            // 
-            this.chkReason.AutoSize = true;
-            this.chkReason.Location = new System.Drawing.Point(928, 29);
-            this.chkReason.Name = "chkReason";
-            this.chkReason.Size = new System.Drawing.Size(15, 14);
-            this.chkReason.TabIndex = 50;
-            this.chkReason.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(755, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
-            this.label4.TabIndex = 49;
-            this.label4.Text = "原因：";
             // 
             // JigManagement
             // 

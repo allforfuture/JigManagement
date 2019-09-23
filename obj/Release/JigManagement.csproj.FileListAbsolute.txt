@@ -52,3 +52,4 @@ C:\Users\yyx19\Desktop\JigManagement\obj\Release\JigManagement.exe.manifest
 C:\Users\yyx19\Desktop\JigManagement\obj\Release\JigManagement.application
 C:\Users\yyx19\Desktop\JigManagement\obj\Release\JigManagement.csproj.CopyComplete
 C:\Users\yyx19\Desktop\JigManagement\bin\Release\Mono.Security.dll
+C:\Users\yyx19\Desktop\JigManagement\obj\Release\JigManagement.csprojAssemblyReference.cache

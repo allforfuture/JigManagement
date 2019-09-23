@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Jig.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="JigManagement" version="1.0.830.935" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="JigManagement" version="1.0.923.1900" language="neutral" processorArchitecture="msil" />
     <commandLine file="JigManagement.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JigManagement.exe" size="276448">
-      <assemblyIdentity name="JigManagement" version="1.0.830.935" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JigManagement.exe" size="278496">
+      <assemblyIdentity name="JigManagement" version="1.0.923.1900" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1Rzj/75VltJAK2Rgvdnu7X70lPhmQACw41iYr60Bv30=</dsig:DigestValue>
+        <dsig:DigestValue>wzirT3WRUH5MDjLyVk6BUYCTTU1VqhRZpT41EE0gcd4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -99,13 +99,13 @@
       <dsig:DigestValue>69O25uiJTsEeCZeQhZLENpACCpLzsndcwcz5aYSwGXs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="JigManagement.exe.config" size="548">
+  <file name="JigManagement.exe.config" size="719">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>zyS+HSnYMsmyGC6nJTgzWVkgjY49XI6yfQ768B5FECY=</dsig:DigestValue>
+      <dsig:DigestValue>QmB5MHwZNUuRS6ydUs1BQF/ETHxaHRZ7bLVGDssU+Ts=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

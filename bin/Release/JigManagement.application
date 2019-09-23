@@ -7,14 +7,14 @@
     <framework targetVersion="4.6" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="JigManagement.exe.manifest" size="5948">
+    <dependentAssembly dependencyType="install" codebase="JigManagement.exe.manifest" size="5950">
       <assemblyIdentity name="JigManagement.exe" version="1.0.0731.1132" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VoCwvix654Iykgr4pkbD0GmESfJoOmGr/dWWrpfdZbw=</dsig:DigestValue>
+        <dsig:DigestValue>m5sS0n1UeG8EfTAEIxwONi67R8HgAnbQc2GK5qA4NVc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
