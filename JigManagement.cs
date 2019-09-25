@@ -20,25 +20,24 @@ namespace JigManagement
         {
             InitializeComponent();
             this.Text += "_" + Application.ProductVersion.ToString();
-            dtpStart.Value = DateTime.Today.AddDays(-5);
 
             #region 下拉框选项加载
             //cboReason_Search数据库原因字段
-            string sql = "select distinct(reason_text_cn) from m_reason";
-            DataTable dt = new DataTable();
-            new DBFactory().ExecuteDataTable(sql, ref dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                cboReason_Search.Items.Add(dr["reason_text_cn"].ToString());
-            }
+            //string sql = "select distinct(reason_text_cn) from m_reason";
+            //DataTable dt = new DataTable();
+            //new DBFactory().ExecuteDataTable(sql, ref dt);
+            //foreach (DataRow dr in dt.Rows)
+            //{
+            //    cboReason_Search.Items.Add(dr["reason_text_cn"].ToString());
+            //}
             //cboDataTypeID_Search
             string[] strArr = ConfigurationManager.AppSettings["DataTypeID"].Split(',');
-            cboDataTypeID_Search.Items.AddRange(strArr);
+            cboDataTypeID.Items.AddRange(strArr);
             //cboLine_Search
             strArr = ConfigurationManager.AppSettings["Line"].Split(',');
-            cboLine_Search.Items.AddRange(strArr);
+            cboLine.Items.AddRange(strArr);
             //cboExist_Search
-            cboExist_Search.Text = "TRUE";
+            cboExist.Text = "TRUE";
             #endregion
 
             switch (Login.Role)
@@ -63,148 +62,47 @@ namespace JigManagement
         {
             new Login().ShowDialog();
         }
-        private void 添加胶水类型ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bool isOpen = false;
-            foreach (Form openForm in Application.OpenForms)
-            {
-                if (openForm.Text == "GlueType")
-                {
-                    isOpen = true;
-                }
-            }
-            if (!isOpen)
-            {
-                new GlueType().Show();
-            }
-        }
-
-        private void 添加使用地点ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bool isOpen = false;
-            foreach (Form openForm in Application.OpenForms)
-            {
-                if (openForm.Text == "GlueUsePlace")
-                {
-                    isOpen = true;
-                }
-            }
-            if (!isOpen)
-            {
-                new GlueUsePlace().Show();
-            }
-        }
-
-        private void 装大胶水ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bool isOpen = false;
-            foreach (Form openForm in Application.OpenForms)
-            {
-                if (openForm.Text == "BigGlueItem")
-                {
-                    isOpen = true;
-                }
-            }
-            if (!isOpen)
-            {
-                new BigGlueItem().Show();
-            }
-        }
-
-        private void 装小胶水ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bool isOpen = false;
-            foreach (Form openForm in Application.OpenForms)
-            {
-                if (openForm.Text == "SmallGlueItem")
-                {
-                    isOpen = true;
-                }
-            }
-            if (!isOpen)
-            {
-                new SmallGlueItem().Show();
-            }
-        }
-
-        private void 移动胶水ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bool isOpen = false;
-            foreach (Form openForm in Application.OpenForms)
-            {
-                if (openForm.Text == "GlueRecord")
-                {
-                    isOpen = true;
-                }
-            }
-            if (!isOpen)
-            {
-                new GlueRecord().Show();
-            }
-        }
-
-        private void 打印标签ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bool isOpen = false;
-            foreach (Form openForm in Application.OpenForms)
-            {
-                if (openForm.Text == "Print")
-                {
-                    isOpen = true;
-                }
-            }
-            if (!isOpen)
-            {
-                new Print().Show();
-            }
-        }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
+            if (!chkJigID.Checked && !chkDataTypeID.Checked && !chkLine.Checked && !chkExist.Checked)
+            {
+                MessageBox.Show("没有勾选搜索条件");
+                return;
+            }
+
             dgvData.Columns.Clear();            
             
             StringBuilder sql = new StringBuilder();
             sql.AppendLine(
-@"SELECT serial_cd,created_at,reason_text_cn,comment_text,datatype_id,line_cd,exist_flag
-FROM
-(SELECT ROW_NUMBER() OVER (PARTITION BY Status.serial_cd ORDER BY Status.created_at DESC),
-Status.serial_cd,Status.created_at,Reason.reason_text_cn,Status.status_cd,Status.comment_text,
-Jig.datatype_id,Jig.line_cd,Jig.exist_flag
-FROM jig_status Status
-LEFT JOIN m_reason Reason ON Status.reason_cd=Reason.reason_cd
-LEFT JOIN m_jig Jig ON Status.serial_cd=Jig.serial_cd) Table1
-WHERE row_number=1 AND status_cd='1'"
+@"SELECT Judge.serial_cd,Jig.datatype_id,Jig.line_cd,Jig.exist_flag
+FROM v_total_judge Judge
+LEFT JOIN m_jig Jig ON Judge.serial_cd=Jig.serial_cd
+WHERE Judge.total_judge !='0'"
 );
 
             if (chkJigID.Checked)
             {
-                sql.AppendLine("AND serial_cd='" + txtJigID_Search.Text + "'");
-            }
-            if (chkTime.Checked)
-            {
-                sql.AppendLine(string.Format("AND '{0}'<=created_at AND created_at<'{1}'::timestamp+ '1D'",
-                    dtpStart.Value.ToString("yyyyMMdd"), dtpEnd.Value.ToString("yyyyMMdd")));
-            }
-
-            if (chkReason.Checked)
-            {
-                sql.AppendLine("AND reason_text_cn='" + cboReason_Search.Text + "'");
-            }
-
+                //AND Judge.serial_cd='HRD9215-037D9HK09-DCCI1100A'
+                sql.AppendLine("AND Judge.serial_cd='" + txtJigID.Text + "'");
+            }            
             if (chkDataTypeID.Checked)
             {
-                sql.AppendLine("AND datatype_id='"+cboDataTypeID_Search.Text+"'");
+                //AND Jig.datatype_id='JIG_BASE'
+                sql.AppendLine("AND Jig.datatype_id='" + cboDataTypeID.Text+"'");
             }
-
-
             if (chkLine.Checked)
             {
-                sql.AppendLine("AND line_cd='"+cboLine_Search.Text+"'");
+                //AND Jig.line_cd='L06'
+                sql.AppendLine("AND Jig.line_cd='" + cboLine.Text+"'");
             }
 
             if (chkExist.Checked)
             {
-                sql.AppendLine("AND exist_flag="+cboExist_Search.Text+"");
+                if (cboExist.Text=="NULL")
+                    sql.AppendLine("AND Jig.exist_flag IS NULL");
+                else
+                    sql.AppendLine("AND Jig.exist_flag=" + cboExist.Text+"");
             }
 
             DataTable dt = new DataTable();
@@ -298,6 +196,7 @@ WHERE row_number=1 AND status_cd='1'"
                 if (openForm.Text == "JigAdd")
                 {
                     isOpen = true;
+                    openForm.Focus();
                     break;
                 }
             }
@@ -315,6 +214,7 @@ WHERE row_number=1 AND status_cd='1'"
                 if (openForm.Text == "JigExist")
                 {
                     isOpen = true;
+                    openForm.Focus();
                     break;
                 }
             }
@@ -332,6 +232,7 @@ WHERE row_number=1 AND status_cd='1'"
                 if (openForm.Text == "JigMaintenance")
                 {
                     isOpen = true;
+                    openForm.Focus();
                     break;
                 }
             }
@@ -349,12 +250,31 @@ WHERE row_number=1 AND status_cd='1'"
                 if (openForm.Text == "JigRename")
                 {
                     isOpen = true;
+                    openForm.Focus();
                     break;
                 }
             }
             if (!isOpen)
             {
                 new JigRename().Show();
+            }
+        }
+
+        private void 维修记录ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool isOpen = false;
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm.Text == "MaintenanceHistory")
+                {
+                    isOpen = true;
+                    openForm.Focus();
+                    break;
+                }
+            }
+            if (!isOpen)
+            {
+                new MaintenanceHistory().Show();
             }
         }
     }

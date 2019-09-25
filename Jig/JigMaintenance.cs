@@ -52,6 +52,7 @@ namespace JigManagement.Jig
             {
                 new DBFactory().ExecuteSQL(sql);
                 MessageBox.Show("提交维修信息成功");
+                this.Close();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message, "数据库", MessageBoxButtons.OK, MessageBoxIcon.Error); }

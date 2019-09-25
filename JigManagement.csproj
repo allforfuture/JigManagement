@@ -87,12 +87,6 @@
   <ItemGroup>
     <Compile Include="API\API.cs" />
     <Compile Include="BarcodeHelper.cs" />
-    <Compile Include="BigGlueItem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BigGlueItem.Designer.cs">
-      <DependentUpon>BigGlueItem.cs</DependentUpon>
-    </Compile>
     <Compile Include="Info_backup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,17 +123,17 @@
     <Compile Include="Jig\JigRename.Designer.cs">
       <DependentUpon>JigRename.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaintenanceHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintenanceHistory.Designer.cs">
+      <DependentUpon>MaintenanceHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Print.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Print.Designer.cs">
       <DependentUpon>Print.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GlueRecord.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GlueRecord.Designer.cs">
-      <DependentUpon>GlueRecord.cs</DependentUpon>
     </Compile>
     <Compile Include="DBFactory.cs" />
     <Compile Include="JigManagement.cs">
@@ -147,18 +141,6 @@
     </Compile>
     <Compile Include="JigManagement.Designer.cs">
       <DependentUpon>JigManagement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GlueType.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GlueType.Designer.cs">
-      <DependentUpon>GlueType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GlueUsePlace.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GlueUsePlace.Designer.cs">
-      <DependentUpon>GlueUsePlace.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -174,16 +156,6 @@
     <Compile Include="Query.Designer.cs">
       <DependentUpon>Query.cs</DependentUpon>
     </Compile>
-    <Compile Include="SmallGlueItem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include=".Designer.cs">
-      <DependentUpon>SmallGlueItem.cs</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
-    <EmbeddedResource Include="BigGlueItem.resx">
-      <DependentUpon>BigGlueItem.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Info_backup.resx">
       <DependentUpon>Info_backup.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,20 +174,14 @@
     <EmbeddedResource Include="Jig\JigRename.resx">
       <DependentUpon>JigRename.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MaintenanceHistory.resx">
+      <DependentUpon>MaintenanceHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Print.resx">
       <DependentUpon>Print.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GlueRecord.resx">
-      <DependentUpon>GlueRecord.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="JigManagement.resx">
       <DependentUpon>JigManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GlueType.resx">
-      <DependentUpon>GlueType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GlueUsePlace.resx">
-      <DependentUpon>GlueUsePlace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -232,9 +198,6 @@
     </Compile>
     <EmbeddedResource Include="Query.resx">
       <DependentUpon>Query.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SmallGlueItem.resx">
-      <DependentUpon>SmallGlueItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
