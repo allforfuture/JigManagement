@@ -41,7 +41,7 @@ namespace JigManagement
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "数据库查询", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "数据库", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

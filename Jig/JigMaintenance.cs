@@ -40,8 +40,9 @@ namespace JigManagement.Jig
                                 }";
 
 
-            if (!API.API.PostHttp(APIbody))
+            if (!API.API.HttpResponse(APIbody, "POST"))
             {
+                { MessageBox.Show("网页PUT失败", "网页POST", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 return;
             }
 

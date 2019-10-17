@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Jig.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="JigManagement" version="1.0.925.1200" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="JigManagement" version="1.0.1017.1000" language="neutral" processorArchitecture="msil" />
     <commandLine file="JigManagement.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JigManagement.exe" size="253920">
-      <assemblyIdentity name="JigManagement" version="1.0.925.1200" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JigManagement.exe" size="254944">
+      <assemblyIdentity name="JigManagement" version="1.0.1017.1000" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Ni4N7mzQMBXBaucwwBSXEA+mb+e4/VUwninW+tCNMPw=</dsig:DigestValue>
+        <dsig:DigestValue>gMlBpen8VRzYtuyW8NQV8bDS2sV9nn99O9R7m8lane8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -199,6 +199,7 @@
     <EmbeddedResource Include="Query.resx">
       <DependentUpon>Query.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Document\RMS-NG通信仕様_20190807.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

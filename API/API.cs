@@ -20,7 +20,7 @@ namespace JigManagement.API
         readonly static string ContentType = ConfigurationManager.AppSettings["ContentType"];
 
 
-        public static bool /*string*/ PostHttp( string APIbody)
+        public static bool HttpResponse( string APIbody,string Method)
         {
             byte[] btBodys = Encoding.UTF8.GetBytes(APIbody);
 
@@ -34,7 +34,7 @@ namespace JigManagement.API
             {
                 httpWebRequest = (HttpWebRequest)WebRequest.Create(APIurl);
                 httpWebRequest.ContentType = ContentType;
-                httpWebRequest.Method = "POST";
+                httpWebRequest.Method = Method;
                 httpWebRequest.Timeout = 10 * 1000;
                 //httpWebRequest.ContentLength = btBodys.Length;
 
@@ -65,5 +65,6 @@ namespace JigManagement.API
                 if (streamReader != null) streamReader.Close();
             }
         }
+
     }
 }

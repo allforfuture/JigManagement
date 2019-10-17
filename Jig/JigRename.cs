@@ -29,22 +29,40 @@ namespace JigManagement.Jig
             string sql = string.Format(
 @"UPDATE m_jig SET exist_flag=False WHERE serial_cd='{0}';
 INSERT INTO m_jig (serial_cd, created_at, datatype_id,line_cd, user_id,exist_flag)
-VALUES ('{1}',  Now()
+VALUES ('{1}',  NOW()
 , (select datatype_id
 from m_jig
 where serial_cd='{0}')
 ,(select line_cd
 from m_jig
 where serial_cd='{0}')
-,'{2}',True)"
-,txtJigID_old.Text,txtJigID_new.Text,Login.User
+,'{2}',True)
+RETURNING serial_cd,datatype_id,line_cd"
+, txtJigID_old.Text,txtJigID_new.Text,Login.User
 );
-
 
             try
             {
-                new DBFactory().ExecuteSQL(sql);
-                MessageBox.Show("变更成功");
+                DataTable dt = new DataTable();
+                new DBFactory().ExecuteDataTable(sql, ref dt);
+                if (dt.Rows.Count > 0)
+                {
+                    string APIbody = @"{
+	                                ""serial_cd"": """ + dt.Rows[0]["serial_cd"].ToString() + @""",
+                                    ""datatype_id"": """ + dt.Rows[0]["datatype_id"].ToString() + @""",
+                                    ""line_cd"": """ + dt.Rows[0]["line_cd"].ToString() + @""",
+	                                ""status"": ""0"",
+	                                ""reason_cd"": """"
+                                }";
+
+                    if (!API.API.HttpResponse(APIbody, "PUT"))
+                    {
+                        { MessageBox.Show("网页PUT失败", "网页PUT", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                        return;
+                    }
+                    MessageBox.Show("变更成功");
+                }
+                else { MessageBox.Show("变更失败"); }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message, "数据库", MessageBoxButtons.OK, MessageBoxIcon.Error); }

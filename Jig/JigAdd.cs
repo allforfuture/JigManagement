@@ -32,6 +32,8 @@ namespace JigManagement.Jig
                 MessageBox.Show("需要添加的信息没填满", "添加", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            
+           
 
             string sql = string.Format(@"INSERT INTO m_jig (serial_cd, created_at, datatype_id,line_cd, user_id,exist_flag)
                             VALUES ('{0}',  Now(), '{1}', '{2}','{3}',True)"
@@ -39,8 +41,23 @@ namespace JigManagement.Jig
 
             try
             {
-                new DBFactory().ExecuteSQL(sql);
-                MessageBox.Show("添加成功");
+                if (new DBFactory().ExecuteSQL(sql) > 0)
+                {
+                    string APIbody = @"{
+	                                ""serial_cd"": """ + txtJigID_Add.Text + @""",
+                                    ""datatype_id"": """ + cboDataTypeID_Add.Text + @""",
+                                    ""line_cd"": """ + cboLine_Add.Text + @""",
+	                                ""status"": ""0"",
+	                                ""reason_cd"": """"
+                                }";
+                    if (!API.API.HttpResponse(APIbody, "PUT"))
+                    {
+                        { MessageBox.Show("网页PUT失败", "网页PUT", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                        return;
+                    }
+                    MessageBox.Show("添加成功");
+                }
+                else { MessageBox.Show("添加失败"); }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message,"数据库",MessageBoxButtons.OK,MessageBoxIcon.Error); }           
