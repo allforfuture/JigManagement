@@ -45,13 +45,17 @@ namespace JigManagement.Jig
                 { MessageBox.Show("网页PUT失败", "网页POST", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 return;
             }
+            
+            StringBuilder sql = new StringBuilder();
+            sql.AppendLine($@"INSERT INTO jig_status(serial_cd,created_at,reason_cd,status_cd,comment_text)
+VALUES('{txtJigID.Text}',NOW(),'001','0',''),('{txtJigID.Text}',NOW(),'002','0','')");
+            sql.AppendFormat(@";INSERT INTO jig_mainte_history (id, serial_cd, created_at, work_type, user_id,comments)
+VALUES (Nextval('jig_mainte_history_id_seq'), '{0}', now(), 'MAINTENANCE', '{1}','{2}')"
+, txtJigID.Text, Login.User, txtComments.Text);
 
-            string sql = string.Format(@"INSERT INTO jig_mainte_history (id, serial_cd, created_at, work_type, user_id,comments)
-                                        VALUES (Nextval('jig_mainte_history_id_seq'), '{0}', now(), 'MAINTENANCE', '{1}','{2}')"
-                           , txtJigID.Text, Login.User, txtComments.Text);
             try
             {
-                new DBFactory().ExecuteSQL(sql);
+                new DBFactory().ExecuteSQL(sql.ToString());
                 MessageBox.Show("提交维修信息成功");
                 this.Close();
             }
