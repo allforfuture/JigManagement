@@ -93,7 +93,7 @@ namespace JigManagement
         {
             string sql = "Select user_id,role_text From m_user Where user_id='" + txtUser.Text + "' and pass_wd='" + txtPassword.Text + "'";
             DataTable dt = new DataTable();
-            new DBFactory().ExecuteDataTable(sql, ref dt);
+            new DBhelp().ExecuteDataTable(sql, ref dt);
             if (dt.Rows.Count > 0)
             {
                 //登陆成功

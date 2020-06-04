@@ -71,8 +71,7 @@ namespace JigManagement
                 return;
             }
 
-            dgvData.Columns.Clear();            
-            
+            dgvData.Columns.Clear();
             StringBuilder sql = new StringBuilder();
             sql.AppendLine(
 @"SELECT Judge.serial_cd,Jig.datatype_id,Jig.line_cd,Jig.exist_flag
@@ -83,17 +82,14 @@ WHERE Judge.total_judge !='0'"
 
             if (chkJigID.Checked)
             {
-                //AND Judge.serial_cd='HRD9215-037D9HK09-DCCI1100A'
                 sql.AppendLine("AND Judge.serial_cd='" + txtJigID.Text + "'");
             }            
             if (chkDataTypeID.Checked)
             {
-                //AND Jig.datatype_id='JIG_BASE'
                 sql.AppendLine("AND Jig.datatype_id='" + cboDataTypeID.Text+"'");
             }
             if (chkLine.Checked)
             {
-                //AND Jig.line_cd='L06'
                 sql.AppendLine("AND Jig.line_cd='" + cboLine.Text+"'");
             }
 
@@ -106,88 +102,11 @@ WHERE Judge.total_judge !='0'"
             }
 
             DataTable dt = new DataTable();
-            new DBFactory().ExecuteDataTable(sql.ToString(), ref dt);
-            if (dt.Rows.Count > 0)
-            {
-                dgvData.DataSource = dt;
-                //加按钮
-                addButtonsToDataGridView(dgvData);
-                dgvData.AutoResizeColumns();
-            }
-            //else { MessageBox.Show("所选的条件查询不到数据", "数据库查询", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+            new DBhelp().ExecuteDataTable(sql.ToString(), ref dt);
+            dgvData.DataSource = dt;
+            dgvData.AutoResizeColumns();
         }
-
-
-        //定义ButtonColumn
-        DataGridViewButtonColumn btnOpen;
-        DataGridViewButtonColumn btnMaintenance;
-        private void addButtonsToDataGridView(DataGridView dgv)
-        {
-            //btnOpen = new DataGridViewButtonColumn();
-            //btnOpen.HeaderText = string.Empty;
-            //btnOpen.Text = "Jig属性";
-            //btnOpen.UseColumnTextForButtonValue = true;
-            //btnOpen.Width = 80;
-            //dgv.Columns.Add(btnOpen);
-
-            btnMaintenance = new DataGridViewButtonColumn();
-            btnMaintenance.HeaderText = string.Empty;
-            btnMaintenance.Text = "维修";
-            btnMaintenance.UseColumnTextForButtonValue = true;
-            btnMaintenance.Width = 80;
-            dgv.Columns.Add(btnMaintenance);
-        }
-
-        private void DgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //点击"Jig属性"
-            if (dgvData.Columns[e.ColumnIndex] == btnOpen)
-            {
-                foreach (Form form in Application.OpenForms)
-                {
-                    if (form.Name == "Info")
-                    {
-                        MessageBox.Show("请关闭已打开的Info窗口再打开", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                }
-                //int currentRow = int.Parse(e.RowIndex.ToString());
-
-                DataGridViewRow row = dgvData.Rows[e.RowIndex];
-                Info info = new Info(row, dgvData.Columns);
-                info.Show();
-            }
-            //点击"维修"
-            else if (dgvData.Columns[e.ColumnIndex] == btnMaintenance)
-            {
-
-                if (Login.Role != "admin" && Login.Role != "mainte")
-                {
-                    MessageBox.Show("此用户没有权限维修", "维修", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-                string serial_cd = dgvData.Rows[e.RowIndex].Cells["serial_cd"].Value.ToString();
-                bool isOpen = false;
-                foreach (Form openForm in Application.OpenForms)
-                {
-                    if (openForm.Text == "JigMaintenance")
-                    {
-                        isOpen = true;
-                        openForm.Close();
-                        new JigMaintenance(serial_cd).ShowDialog();
-                        break;
-                    }
-                }
-                if (!isOpen)
-                {
-                    new JigMaintenance(serial_cd).ShowDialog();
-                }
-                BtnSearch_Click(sender, e);
-            }
-        }
-
-
-
+        
         private void Jig添加ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bool isOpen = false;

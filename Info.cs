@@ -61,7 +61,7 @@ namespace JigManagement
                                     ,exist_flag={3}
                                     WHERE serial_cd='{4}'"
 , cboDataTypeID_Update.Text, cboLine_Update.Text, Login.User, cboExist_Update.Text, txtJigID.Text);
-            new DBFactory().ExecuteSQL(sql);
+            new DBhelp().ExecuteSQL(sql);
             Close();
         }
     }

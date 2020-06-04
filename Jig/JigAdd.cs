@@ -41,7 +41,7 @@ namespace JigManagement.Jig
 
             try
             {
-                if (new DBFactory().ExecuteSQL(sql) > 0)
+                if (new DBhelp().ExecuteSQL(sql) > 0)
                 {
                     string APIbody = @"{
 	                                ""serial_cd"": """ + txtJigID_Add.Text + @""",

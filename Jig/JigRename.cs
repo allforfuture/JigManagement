@@ -44,7 +44,7 @@ RETURNING serial_cd,datatype_id,line_cd"
             try
             {
                 DataTable dt = new DataTable();
-                new DBFactory().ExecuteDataTable(sql, ref dt);
+                new DBhelp().ExecuteDataTable(sql, ref dt);
                 if (dt.Rows.Count > 0)
                 {
                     string APIbody = @"{

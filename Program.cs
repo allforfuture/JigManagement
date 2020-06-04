@@ -22,7 +22,6 @@ namespace JigManagement
             {
                 Application.Run(new JigManagement());
             }
-            //Application.Run(new Print());
         }
     }
 }

@@ -90,6 +90,7 @@
             this.Controls.Add(this.label5);
             this.Name = "JigMaintenance";
             this.Text = "JigMaintenance";
+            this.Load += new System.EventHandler(this.JigMaintenance_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

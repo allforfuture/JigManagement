@@ -56,7 +56,7 @@ namespace JigManagement
                 sql.AppendFormat("And t2.time::date Between '{0}'::date And '{1}'::date\r\n", dtpStart.Value.ToShortDateString(), dtpEnd.Value.ToShortDateString());//"And t2.time::date Between '2020-07-01'::date And '2019-04-01'::date");
             sql.AppendLine("Order By time Desc");
             DataTable dt = new DataTable();
-            new DBFactory().ExecuteDataTable(sql.ToString(), ref dt);
+            new DBhelp().ExecuteDataTable(sql.ToString(), ref dt);
             if (dt.Rows.Count > 0)
             {
                 dgv.DataSource = dt;

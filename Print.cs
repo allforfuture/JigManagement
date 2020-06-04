@@ -59,7 +59,7 @@ namespace JigManagement
                 return;
             }
             DataTable dt = new DataTable();
-            new DBFactory().ExecuteDataTable(sql, ref dt);
+            new DBhelp().ExecuteDataTable(sql, ref dt);
             if (dt.Rows.Count == 1)
             {
                 txt1.Text = dt.Rows[0][0].ToString();

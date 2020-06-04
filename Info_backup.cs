@@ -20,7 +20,7 @@ namespace JigManagement
             //string sql = "select reason_cd,reason_text_cn from m_reason";
             string sql = "select reason_text_cn from m_reason";
             DataTable dt = new DataTable();
-            new DBFactory().ExecuteDataTable(sql, ref dt);
+            new DBhelp().ExecuteDataTable(sql, ref dt);
             for (int i=0;i<dt.Rows.Count;i++)
             {
                 cboReason.Items.Add(dt.Rows[i]["reason_text_cn"]);
@@ -65,7 +65,7 @@ namespace JigManagement
                                         INSERT INTO jig_mainte_history (id, serial_cd, created_at, work_type, user_id)
                                         VALUES (Nextval('jig_mainte_history_id_seq'), '{3}', now(), 'MAINTENANCE', '{4}')"
                         , cboReason.Text, cboStatus.SelectedIndex, txtComment.Text, txtJigID.Text, Login.User);
-            new DBFactory().ExecuteSQL(sql);
+            new DBhelp().ExecuteSQL(sql);
             Close();            
         }
     }

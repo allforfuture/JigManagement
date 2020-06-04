@@ -30,7 +30,7 @@ namespace JigManagement.Jig
 
             try
             {
-                new DBFactory().ExecuteSQL(sql);
+                new DBhelp().ExecuteSQL(sql);
                 MessageBox.Show("报废成功");
             }
             catch (Exception ex)

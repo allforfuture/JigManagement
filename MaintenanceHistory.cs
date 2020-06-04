@@ -59,7 +59,7 @@ WHERE id IS NOT NULL"
             #endregion
 
             DataTable dt = new DataTable();
-            new DBFactory().ExecuteDataTable(sql.ToString(), ref dt);
+            new DBhelp().ExecuteDataTable(sql.ToString(), ref dt);
             dgvData.DataSource = dt;
             dgvData.AutoResizeColumns();
         }
