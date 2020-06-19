@@ -15,12 +15,15 @@ namespace JigManagement
         public MaintenanceHistory()
         {
             InitializeComponent();
+            cboDataTypeID.Items.AddRange(Config.Control.ComboBox_DataTypeID);
+            cboLine.Items.AddRange(Config.Control.ComboBox_Line);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (!chkJigID.Checked && !chkTime.Checked && !chkWorkType.Checked &&
-                !chkUser.Checked && !chkComments.Checked)
+                !chkUser.Checked && !chkComments.Checked &&
+                !chkDataTypeID.Checked && !chkLine.Checked)
             {
                 MessageBox.Show("没有勾选搜索条件");
                 return;
@@ -30,32 +33,41 @@ namespace JigManagement
             #region sql语句
             StringBuilder sql = new StringBuilder();
             sql.AppendLine(
-@"SELECT serial_cd,created_at,work_type,user_id,comments
-FROM jig_mainte_history
-WHERE id IS NOT NULL"
+@"SELECT his.serial_cd,his.created_at,his.work_type,his.user_id,his.comments,jig.datatype_id,jig.line_cd
+FROM jig_mainte_history his
+LEFT JOIN m_jig jig ON his.serial_cd=jig.serial_cd
+WHERE his.id IS NOT NULL"
 );
             if (chkJigID.Checked)
             {
-                sql.AppendLine("AND serial_cd='" + txtJigID.Text + "'");
+                sql.AppendLine("AND his.serial_cd='" + txtJigID.Text + "'");
             }
             if (chkTime.Checked)
             {
-                sql.AppendLine(string.Format("AND '{0}'<=created_at AND created_at<'{1}'::timestamp+ '1D'",
+                sql.AppendLine(string.Format("AND '{0}'<=his.created_at AND his.created_at<'{1}'::timestamp+ '1D'",
                     dtpStart.Value.ToString("yyyyMMdd"), dtpEnd.Value.ToString("yyyyMMdd")));
             }
             if (chkWorkType.Checked)
             {
-                sql.AppendLine("AND work_type='" + cboWorkType.Text + "'");
+                sql.AppendLine("AND his.work_type='" + cboWorkType.Text + "'");
             }
             if (chkUser.Checked)
             {
-                sql.AppendLine("AND user_id='" + txtUser.Text + "'");
+                sql.AppendLine("AND his.user_id='" + txtUser.Text + "'");
             }
             if (chkComments.Checked)
             {
-                sql.AppendLine("AND comments LIKE '%" + txtComments.Text + "%'");
+                sql.AppendLine("AND his.comments LIKE '%" + txtComments.Text + "%'");
             }
-            sql.AppendLine("ORDER BY created_at DESC");
+            if (chkDataTypeID.Checked)
+            {
+                sql.AppendLine("AND jig.datatype_id='" + cboDataTypeID.Text + "'");
+            }
+            if (chkLine.Checked)
+            {
+                sql.AppendLine("AND jig.line_cd='" + cboLine.Text + "'");
+            }
+            sql.AppendLine("ORDER BY his.created_at DESC");
             #endregion
 
             DataTable dt = new DataTable();

@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtComments = new System.Windows.Forms.TextBox();
+            this.chkComments = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.chkUser = new System.Windows.Forms.CheckBox();
             this.chkWorkType = new System.Windows.Forms.CheckBox();
             this.cboWorkType = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -41,18 +47,24 @@
             this.txtJigID = new System.Windows.Forms.TextBox();
             this.chkJigID = new System.Windows.Forms.CheckBox();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtUser = new System.Windows.Forms.TextBox();
-            this.chkUser = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtComments = new System.Windows.Forms.TextBox();
-            this.chkComments = new System.Windows.Forms.CheckBox();
+            this.chkLine = new System.Windows.Forms.CheckBox();
+            this.chkDataTypeID = new System.Windows.Forms.CheckBox();
+            this.cboLine = new System.Windows.Forms.ComboBox();
+            this.cboDataTypeID = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chkLine);
+            this.groupBox2.Controls.Add(this.chkDataTypeID);
+            this.groupBox2.Controls.Add(this.cboLine);
+            this.groupBox2.Controls.Add(this.cboDataTypeID);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtComments);
             this.groupBox2.Controls.Add(this.chkComments);
@@ -77,10 +89,61 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "查找维修记录";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(320, 88);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.TabIndex = 50;
+            this.label4.Text = "Comments：";
+            // 
+            // txtComments
+            // 
+            this.txtComments.Location = new System.Drawing.Point(392, 85);
+            this.txtComments.Multiline = true;
+            this.txtComments.Name = "txtComments";
+            this.txtComments.Size = new System.Drawing.Size(200, 42);
+            this.txtComments.TabIndex = 51;
+            // 
+            // chkComments
+            // 
+            this.chkComments.AutoSize = true;
+            this.chkComments.Location = new System.Drawing.Point(599, 92);
+            this.chkComments.Name = "chkComments";
+            this.chkComments.Size = new System.Drawing.Size(15, 14);
+            this.chkComments.TabIndex = 52;
+            this.chkComments.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(332, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 47;
+            this.label3.Text = "User：";
+            // 
+            // txtUser
+            // 
+            this.txtUser.Location = new System.Drawing.Point(392, 58);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(200, 21);
+            this.txtUser.TabIndex = 48;
+            // 
+            // chkUser
+            // 
+            this.chkUser.AutoSize = true;
+            this.chkUser.Location = new System.Drawing.Point(599, 62);
+            this.chkUser.Name = "chkUser";
+            this.chkUser.Size = new System.Drawing.Size(15, 14);
+            this.chkUser.TabIndex = 49;
+            this.chkUser.UseVisualStyleBackColor = true;
+            // 
             // chkWorkType
             // 
             this.chkWorkType.AutoSize = true;
-            this.chkWorkType.Location = new System.Drawing.Point(659, 26);
+            this.chkWorkType.Location = new System.Drawing.Point(599, 26);
             this.chkWorkType.Name = "chkWorkType";
             this.chkWorkType.Size = new System.Drawing.Size(15, 14);
             this.chkWorkType.TabIndex = 46;
@@ -91,7 +154,7 @@
             this.cboWorkType.FormattingEnabled = true;
             this.cboWorkType.Items.AddRange(new object[] {
             "MAINTENANCE"});
-            this.cboWorkType.Location = new System.Drawing.Point(436, 23);
+            this.cboWorkType.Location = new System.Drawing.Point(392, 23);
             this.cboWorkType.Name = "cboWorkType";
             this.cboWorkType.Size = new System.Drawing.Size(200, 20);
             this.cboWorkType.TabIndex = 40;
@@ -99,7 +162,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(350, 26);
+            this.label9.Location = new System.Drawing.Point(317, 26);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(71, 12);
             this.label9.TabIndex = 38;
@@ -150,7 +213,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(742, 48);
+            this.btnSearch.Location = new System.Drawing.Point(716, 84);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(95, 41);
             this.btnSearch.TabIndex = 26;
@@ -189,56 +252,57 @@
             this.dgvData.Size = new System.Drawing.Size(888, 340);
             this.dgvData.TabIndex = 27;
             // 
-            // label3
+            // chkLine
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(365, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 47;
-            this.label3.Text = "User：";
+            this.chkLine.AutoSize = true;
+            this.chkLine.Location = new System.Drawing.Point(861, 62);
+            this.chkLine.Name = "chkLine";
+            this.chkLine.Size = new System.Drawing.Size(15, 14);
+            this.chkLine.TabIndex = 58;
+            this.chkLine.UseVisualStyleBackColor = true;
             // 
-            // txtUser
+            // chkDataTypeID
             // 
-            this.txtUser.Location = new System.Drawing.Point(436, 58);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(200, 21);
-            this.txtUser.TabIndex = 48;
+            this.chkDataTypeID.AutoSize = true;
+            this.chkDataTypeID.Location = new System.Drawing.Point(861, 26);
+            this.chkDataTypeID.Name = "chkDataTypeID";
+            this.chkDataTypeID.Size = new System.Drawing.Size(15, 14);
+            this.chkDataTypeID.TabIndex = 57;
+            this.chkDataTypeID.UseVisualStyleBackColor = true;
             // 
-            // chkUser
+            // cboLine
             // 
-            this.chkUser.AutoSize = true;
-            this.chkUser.Location = new System.Drawing.Point(659, 62);
-            this.chkUser.Name = "chkUser";
-            this.chkUser.Size = new System.Drawing.Size(15, 14);
-            this.chkUser.TabIndex = 49;
-            this.chkUser.UseVisualStyleBackColor = true;
+            this.cboLine.FormattingEnabled = true;
+            this.cboLine.Location = new System.Drawing.Point(734, 58);
+            this.cboLine.Name = "cboLine";
+            this.cboLine.Size = new System.Drawing.Size(121, 20);
+            this.cboLine.TabIndex = 56;
             // 
-            // label4
+            // cboDataTypeID
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(353, 88);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
-            this.label4.TabIndex = 50;
-            this.label4.Text = "Comments：";
+            this.cboDataTypeID.FormattingEnabled = true;
+            this.cboDataTypeID.Location = new System.Drawing.Point(734, 23);
+            this.cboDataTypeID.Name = "cboDataTypeID";
+            this.cboDataTypeID.Size = new System.Drawing.Size(121, 20);
+            this.cboDataTypeID.TabIndex = 55;
             // 
-            // txtComments
+            // label8
             // 
-            this.txtComments.Location = new System.Drawing.Point(436, 85);
-            this.txtComments.Multiline = true;
-            this.txtComments.Name = "txtComments";
-            this.txtComments.Size = new System.Drawing.Size(200, 42);
-            this.txtComments.TabIndex = 51;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(663, 61);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 12);
+            this.label8.TabIndex = 54;
+            this.label8.Text = "线别：";
             // 
-            // chkComments
+            // label5
             // 
-            this.chkComments.AutoSize = true;
-            this.chkComments.Location = new System.Drawing.Point(659, 92);
-            this.chkComments.Name = "chkComments";
-            this.chkComments.Size = new System.Drawing.Size(15, 14);
-            this.chkComments.TabIndex = 52;
-            this.chkComments.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(639, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 12);
+            this.label5.TabIndex = 53;
+            this.label5.Text = "Data Type ID：";
             // 
             // MaintenanceHistory
             // 
@@ -277,5 +341,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.CheckBox chkUser;
+        private System.Windows.Forms.CheckBox chkLine;
+        private System.Windows.Forms.CheckBox chkDataTypeID;
+        private System.Windows.Forms.ComboBox cboLine;
+        private System.Windows.Forms.ComboBox cboDataTypeID;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label5;
     }
 }

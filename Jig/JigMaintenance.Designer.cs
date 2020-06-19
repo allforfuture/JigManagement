@@ -37,9 +37,9 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(94, 195);
+            this.btnSubmit.Location = new System.Drawing.Point(80, 217);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 57);
+            this.btnSubmit.Size = new System.Drawing.Size(78, 33);
             this.btnSubmit.TabIndex = 47;
             this.btnSubmit.Text = "维修";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -47,15 +47,17 @@
             // 
             // txtJigID
             // 
-            this.txtJigID.Location = new System.Drawing.Point(94, 19);
+            this.txtJigID.Location = new System.Drawing.Point(80, 7);
+            this.txtJigID.Multiline = true;
             this.txtJigID.Name = "txtJigID";
-            this.txtJigID.Size = new System.Drawing.Size(200, 21);
+            this.txtJigID.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtJigID.Size = new System.Drawing.Size(220, 138);
             this.txtJigID.TabIndex = 46;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 22);
+            this.label5.Location = new System.Drawing.Point(12, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 12);
             this.label5.TabIndex = 45;
@@ -63,16 +65,16 @@
             // 
             // txtComments
             // 
-            this.txtComments.Location = new System.Drawing.Point(94, 64);
+            this.txtComments.Location = new System.Drawing.Point(80, 151);
             this.txtComments.Multiline = true;
             this.txtComments.Name = "txtComments";
-            this.txtComments.Size = new System.Drawing.Size(200, 115);
+            this.txtComments.Size = new System.Drawing.Size(220, 60);
             this.txtComments.TabIndex = 49;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 64);
+            this.label1.Location = new System.Drawing.Point(12, 151);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 48;

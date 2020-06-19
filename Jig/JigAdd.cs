@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using System.Configuration;
-
 namespace JigManagement.Jig
 {
     public partial class JigAdd : Form
@@ -17,11 +15,8 @@ namespace JigManagement.Jig
         public JigAdd()
         {
             InitializeComponent();
-
-            string[] strArr = ConfigurationManager.AppSettings["DataTypeID"].Split(',');
-            cboDataTypeID_Add.Items.AddRange(strArr);
-            strArr = ConfigurationManager.AppSettings["Line"].Split(',');
-            cboLine_Add.Items.AddRange(strArr);
+            cboDataTypeID_Add.Items.AddRange(Config.Control.ComboBox_DataTypeID);
+            cboLine_Add.Items.AddRange(Config.Control.ComboBox_Line);
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -52,7 +47,7 @@ namespace JigManagement.Jig
                                 }";
                     if (!API.API.HttpResponse(APIbody, "PUT"))
                     {
-                        { MessageBox.Show("网页PUT失败", "网页PUT", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                        { MessageBox.Show("网页响应失败", "网页PUT", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                         return;
                     }
                     MessageBox.Show("添加成功");

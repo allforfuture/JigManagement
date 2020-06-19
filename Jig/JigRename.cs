@@ -57,7 +57,7 @@ RETURNING serial_cd,datatype_id,line_cd"
 
                     if (!API.API.HttpResponse(APIbody, "PUT"))
                     {
-                        { MessageBox.Show("网页PUT失败", "网页PUT", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                        { MessageBox.Show("网页响应失败", "网页PUT", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                         return;
                     }
                     MessageBox.Show("变更成功");

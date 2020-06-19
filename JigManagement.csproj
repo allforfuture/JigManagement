@@ -92,6 +92,7 @@
   <ItemGroup>
     <Compile Include="API\API.cs" />
     <Compile Include="BarcodeHelper.cs" />
+    <Compile Include="Config\Control.cs" />
     <Compile Include="Info_backup.cs">
       <SubType>Form</SubType>
     </Compile>

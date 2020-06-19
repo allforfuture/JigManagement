@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using System.Configuration;
 using JigManagement.Jig;
 
 namespace JigManagement
@@ -30,13 +29,8 @@ namespace JigManagement
             //{
             //    cboReason_Search.Items.Add(dr["reason_text_cn"].ToString());
             //}
-            //cboDataTypeID_Search
-            string[] strArr = ConfigurationManager.AppSettings["DataTypeID"].Split(',');
-            cboDataTypeID.Items.AddRange(strArr);
-            //cboLine_Search
-            strArr = ConfigurationManager.AppSettings["Line"].Split(',');
-            cboLine.Items.AddRange(strArr);
-            //cboExist_Search
+            cboDataTypeID.Items.AddRange(Config.Control.ComboBox_DataTypeID);
+            cboLine.Items.AddRange(Config.Control.ComboBox_Line);
             cboExist.Text = "TRUE";
             #endregion
 
