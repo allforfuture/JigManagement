@@ -12,24 +12,9 @@ namespace JigManagement.Jig
 {
     public partial class JigMaintenance : Form
     {
-        string[] reasonArr;
         public JigMaintenance()
         {
             InitializeComponent();
-        }
-        
-        private void JigMaintenance_Load(object sender, EventArgs e)
-        {
-            string sql = "SELECT ARRAY_AGG(reason_cd) FROM m_reason";
-            try
-            {
-                reasonArr = (string[])new DBhelp().ExecuteScalar(sql);
-            }
-            catch
-            {
-                MessageBox.Show("数据库中的维修原因查询失败，无法维修", "数据库", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
-            }
         }
 
         private void BtnSubmit_Click(object sender, EventArgs e)
@@ -58,10 +43,10 @@ namespace JigManagement.Jig
 
                 #region 数据库
                 StringBuilder sql = new StringBuilder();
-                foreach (string str in reasonArr)
+                foreach (KeyValuePair<string, string> kvp in Config.Control.ComboBox_Reason)
                 {
                     sql.AppendLine($@"INSERT INTO jig_status(serial_cd,created_at,reason_cd,status_cd,comment_text)
-VALUES('{jig}',NOW(),'{str}','0','');");
+VALUES('{jig}',NOW(),'{kvp.Key}','0','');");
                 }
                 sql.AppendFormat(@"INSERT INTO jig_mainte_history (id, serial_cd, created_at, work_type, user_id,comments)
 VALUES (Nextval('jig_mainte_history_id_seq'), '{0}', now(), 'MAINTENANCE', '{1}','{2}')"

@@ -206,6 +206,7 @@
       <DependentUpon>Query.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Document\RMS-NG通信仕様_20190807.pdf" />
+    <None Include="Document\需求\KK13 IT SFC解锁软件需优化点汇总-20200616.pptx" />
     <None Include="JigManagement_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

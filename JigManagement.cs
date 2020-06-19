@@ -15,20 +15,17 @@ namespace JigManagement
     public partial class JigManagement : Form
     {
         public static JigManagement jigManagement;
+        char separator = '：';
         public JigManagement()
         {
             InitializeComponent();
             this.Text += "_" + Application.ProductVersion.ToString();
 
             #region 下拉框选项加载
-            //cboReason_Search数据库原因字段
-            //string sql = "select distinct(reason_text_cn) from m_reason";
-            //DataTable dt = new DataTable();
-            //new DBFactory().ExecuteDataTable(sql, ref dt);
-            //foreach (DataRow dr in dt.Rows)
-            //{
-            //    cboReason_Search.Items.Add(dr["reason_text_cn"].ToString());
-            //}
+            foreach (KeyValuePair<string, string> kvp in Config.Control.ComboBox_Reason)
+            {
+                cboReason.Items.Add(kvp.Key + separator + kvp.Value);
+            }
             cboDataTypeID.Items.AddRange(Config.Control.ComboBox_DataTypeID);
             cboLine.Items.AddRange(Config.Control.ComboBox_Line);
             cboExist.Text = "TRUE";
@@ -68,15 +65,26 @@ namespace JigManagement
             dgvData.Columns.Clear();
             StringBuilder sql = new StringBuilder();
             sql.AppendLine(
-@"SELECT Judge.serial_cd,Jig.datatype_id,Jig.line_cd,Jig.exist_flag
-FROM v_total_judge Judge
-LEFT JOIN m_jig Jig ON Judge.serial_cd=Jig.serial_cd
-WHERE Judge.total_judge !='0'"
+@"WITH All_data AS(
+	SELECT ROW_NUMBER() OVER (PARTITION BY serial_cd,reason_cd ORDER BY created_at DESC) AS grouplist,*
+	FROM jig_status
+)
+,Bad_jig AS(
+	SELECT serial_cd,ARRAY_AGG(reason_cd) reason_arr,ARRAY_AGG(created_at) created_arr,MIN(created_at) ng_earliest_time
+	FROM all_data
+	WHERE grouplist=1
+	AND status_cd='1'
+	GROUP BY serial_cd
+)
+SELECT Bad_jig.serial_cd,Jig.datatype_id,Jig.line_cd,Jig.exist_flag,Bad_jig.reason_arr::TEXT,Bad_jig.ng_earliest_time
+FROM Bad_jig
+LEFT JOIN m_jig Jig ON Bad_jig.serial_cd=Jig.serial_cd
+WHERE TRUE"
 );
 
             if (chkJigID.Checked)
             {
-                sql.AppendLine("AND Judge.serial_cd='" + txtJigID.Text + "'");
+                sql.AppendLine("AND Bad_jig.serial_cd='" + txtJigID.Text + "'");
             }            
             if (chkDataTypeID.Checked)
             {
@@ -86,13 +94,21 @@ WHERE Judge.total_judge !='0'"
             {
                 sql.AppendLine("AND Jig.line_cd='" + cboLine.Text+"'");
             }
-
             if (chkExist.Checked)
             {
                 if (cboExist.Text=="NULL")
                     sql.AppendLine("AND Jig.exist_flag IS NULL");
                 else
                     sql.AppendLine("AND Jig.exist_flag=" + cboExist.Text+"");
+            }
+            if (chkReason.Checked)
+            {
+                sql.AppendLine($"AND '{cboReason.Text.Split(separator)[0]}'=ANY(Bad_jig.reason_arr)");
+            }
+            if (chkDate.Checked)
+            {
+                sql.AppendLine(string.Format("AND (Bad_jig.ng_earliest_time BETWEEN '{0}' AND '{1}'::timestamp+ '1D')",
+                    dtpStart.Value.ToString("yyyyMMdd"), dtpEnd.Value.ToString("yyyyMMdd")));
             }
 
             DataTable dt = new DataTable();

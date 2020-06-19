@@ -20,6 +20,7 @@ namespace JigManagement
             DialogResult dr = new Login().ShowDialog();
             if (dr == DialogResult.OK)
             {
+                Config.Control.GetReasonValue();
                 Application.Run(new JigManagement());
             }
         }

@@ -43,6 +43,7 @@
             this.txtJigID = new System.Windows.Forms.TextBox();
             this.chkJigID = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cboReason = new System.Windows.Forms.ComboBox();
             this.chkExist = new System.Windows.Forms.CheckBox();
             this.chkLine = new System.Windows.Forms.CheckBox();
             this.chkDataTypeID = new System.Windows.Forms.CheckBox();
@@ -52,6 +53,12 @@
             this.cboDataTypeID = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.chkReason = new System.Windows.Forms.CheckBox();
+            this.chkDate = new System.Windows.Forms.CheckBox();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -143,7 +150,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(589, 37);
+            this.btnSearch.Location = new System.Drawing.Point(637, 20);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(95, 41);
             this.btnSearch.TabIndex = 26;
@@ -154,7 +161,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 29);
+            this.label2.Location = new System.Drawing.Point(25, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 12);
             this.label2.TabIndex = 27;
@@ -162,7 +169,7 @@
             // 
             // txtJigID
             // 
-            this.txtJigID.Location = new System.Drawing.Point(78, 26);
+            this.txtJigID.Location = new System.Drawing.Point(99, 17);
             this.txtJigID.Name = "txtJigID";
             this.txtJigID.Size = new System.Drawing.Size(200, 21);
             this.txtJigID.TabIndex = 28;
@@ -170,7 +177,7 @@
             // chkJigID
             // 
             this.chkJigID.AutoSize = true;
-            this.chkJigID.Location = new System.Drawing.Point(282, 29);
+            this.chkJigID.Location = new System.Drawing.Point(305, 20);
             this.chkJigID.Name = "chkJigID";
             this.chkJigID.Size = new System.Drawing.Size(15, 14);
             this.chkJigID.TabIndex = 29;
@@ -178,11 +185,18 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dtpEnd);
+            this.groupBox2.Controls.Add(this.dtpStart);
             this.groupBox2.Controls.Add(this.chkExist);
+            this.groupBox2.Controls.Add(this.chkDate);
             this.groupBox2.Controls.Add(this.chkLine);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.chkDataTypeID);
+            this.groupBox2.Controls.Add(this.chkReason);
             this.groupBox2.Controls.Add(this.cboExist);
             this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.cboReason);
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.cboLine);
             this.groupBox2.Controls.Add(this.cboDataTypeID);
             this.groupBox2.Controls.Add(this.label8);
@@ -198,12 +212,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "查找Jig的NG对象";
             // 
+            // cboReason
+            // 
+            this.cboReason.FormattingEnabled = true;
+            this.cboReason.Location = new System.Drawing.Point(382, 46);
+            this.cboReason.Name = "cboReason";
+            this.cboReason.Size = new System.Drawing.Size(150, 20);
+            this.cboReason.TabIndex = 49;
+            // 
             // chkExist
             // 
             this.chkExist.AutoSize = true;
             this.chkExist.Checked = true;
             this.chkExist.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkExist.Location = new System.Drawing.Point(518, 66);
+            this.chkExist.Location = new System.Drawing.Point(509, 20);
             this.chkExist.Name = "chkExist";
             this.chkExist.Size = new System.Drawing.Size(15, 14);
             this.chkExist.TabIndex = 48;
@@ -212,7 +234,7 @@
             // chkLine
             // 
             this.chkLine.AutoSize = true;
-            this.chkLine.Location = new System.Drawing.Point(518, 29);
+            this.chkLine.Location = new System.Drawing.Point(226, 78);
             this.chkLine.Name = "chkLine";
             this.chkLine.Size = new System.Drawing.Size(15, 14);
             this.chkLine.TabIndex = 47;
@@ -221,7 +243,7 @@
             // chkDataTypeID
             // 
             this.chkDataTypeID.AutoSize = true;
-            this.chkDataTypeID.Location = new System.Drawing.Point(282, 64);
+            this.chkDataTypeID.Location = new System.Drawing.Point(226, 49);
             this.chkDataTypeID.Name = "chkDataTypeID";
             this.chkDataTypeID.Size = new System.Drawing.Size(15, 14);
             this.chkDataTypeID.TabIndex = 46;
@@ -234,7 +256,7 @@
             "TRUE",
             "FALSE",
             "NULL"});
-            this.cboExist.Location = new System.Drawing.Point(392, 63);
+            this.cboExist.Location = new System.Drawing.Point(382, 17);
             this.cboExist.Name = "cboExist";
             this.cboExist.Size = new System.Drawing.Size(121, 20);
             this.cboExist.TabIndex = 45;
@@ -242,7 +264,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(342, 66);
+            this.label10.Location = new System.Drawing.Point(341, 20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 12);
             this.label10.TabIndex = 44;
@@ -251,7 +273,7 @@
             // cboLine
             // 
             this.cboLine.FormattingEnabled = true;
-            this.cboLine.Location = new System.Drawing.Point(391, 26);
+            this.cboLine.Location = new System.Drawing.Point(99, 75);
             this.cboLine.Name = "cboLine";
             this.cboLine.Size = new System.Drawing.Size(121, 20);
             this.cboLine.TabIndex = 41;
@@ -259,7 +281,7 @@
             // cboDataTypeID
             // 
             this.cboDataTypeID.FormattingEnabled = true;
-            this.cboDataTypeID.Location = new System.Drawing.Point(120, 63);
+            this.cboDataTypeID.Location = new System.Drawing.Point(99, 46);
             this.cboDataTypeID.Name = "cboDataTypeID";
             this.cboDataTypeID.Size = new System.Drawing.Size(121, 20);
             this.cboDataTypeID.TabIndex = 40;
@@ -267,7 +289,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(348, 29);
+            this.label8.Location = new System.Drawing.Point(28, 78);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 12);
             this.label8.TabIndex = 39;
@@ -276,11 +298,61 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(25, 66);
+            this.label9.Location = new System.Drawing.Point(4, 49);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 12);
             this.label9.TabIndex = 38;
             this.label9.Text = "Data Type ID：";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(344, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "日期：";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(344, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "原因：";
+            // 
+            // chkReason
+            // 
+            this.chkReason.AutoSize = true;
+            this.chkReason.Location = new System.Drawing.Point(538, 49);
+            this.chkReason.Name = "chkReason";
+            this.chkReason.Size = new System.Drawing.Size(15, 14);
+            this.chkReason.TabIndex = 49;
+            this.chkReason.UseVisualStyleBackColor = true;
+            // 
+            // chkDate
+            // 
+            this.chkDate.AutoSize = true;
+            this.chkDate.Location = new System.Drawing.Point(636, 76);
+            this.chkDate.Name = "chkDate";
+            this.chkDate.Size = new System.Drawing.Size(15, 14);
+            this.chkDate.TabIndex = 49;
+            this.chkDate.UseVisualStyleBackColor = true;
+            // 
+            // dtpStart
+            // 
+            this.dtpStart.Location = new System.Drawing.Point(382, 72);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(121, 21);
+            this.dtpStart.TabIndex = 49;
+            // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Location = new System.Drawing.Point(509, 72);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(121, 21);
+            this.dtpEnd.TabIndex = 50;
             // 
             // JigManagement
             // 
@@ -329,6 +401,13 @@
         public System.Windows.Forms.ToolStripMenuItem jig报废ToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem jig变更ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 维修记录ToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cboReason;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox chkReason;
+        private System.Windows.Forms.CheckBox chkDate;
+        private System.Windows.Forms.DateTimePicker dtpStart;
+        private System.Windows.Forms.DateTimePicker dtpEnd;
     }
 }
 
